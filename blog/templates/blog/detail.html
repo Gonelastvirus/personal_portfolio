@@ -2,5 +2,6 @@
 {% block content %}
 <h1>{{ blog.title }}</h1>
 <h2>{{ blog.date|date:'M d Y' }}</h2>
-<p>{{ blog.discription }}</p>
+<img src="{{ blog.image.url }}" width="500" ><br>
+<pree>{{ blog.discription|striptags }}</pree>
 {% endblock %}

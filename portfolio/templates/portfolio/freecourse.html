@@ -1,0 +1,27 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<center><h1>Free Courses</h1>
+    <h2>Gone Lastvirus has upload {{courses.count}} course{{courses.count|pluralize}}</h2></center>
+  <hr>
+<hr>
+<div class="row">
+  {% for course in courses %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if course.url %}
+    <a href="{{ course.url }}" >
+      <img src="{{ course.image.url }}" class="rounded-circle"  width="250" height="230" >
+      </a>
+    {% else %}
+
+    <img src="{{ course.image.url }}"  class="rounded-circle"  width="250" height="230"  >
+    {% endif %}
+    <h3>{{ course.title }}</h3>
+    <p>{{ course.discription }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

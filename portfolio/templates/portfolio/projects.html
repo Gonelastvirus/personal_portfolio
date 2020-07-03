@@ -1,0 +1,23 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<center><h1>Gone Lastvirus projects</h1>
+<h2>Gone Lastvirus has upload {{projects.count}} project{{projects.count|pluralize}}</h2></center>
+<hr>
+<div class="row">
+{% for project in projects %}
+<div class="col-lg-4 col-md-6">
+{% if project.url %}
+<a href="{{ project.url }}">
+<img src="{{ project.image.url }}" class="img-thumbnail" style="border-radius:20px;">
+</a>
+{% else %}
+<img src="{{ project.image.url }}" class="img-thumbnail" style="border-radius:20px;">
+{% endif %}
+<h3>{{ project.title }}</h3>
+<p>{{ project.discription }}</p>
+</div>
+{% endfor %}
+{% endblock  %}

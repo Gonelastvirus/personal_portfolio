@@ -18,10 +18,20 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from portfolio import views
+admin.site.site_header = "Admin page"
+admin.site.site_title = "Admin Portal"
+admin.site.index_title = "Welcome to Admin page"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-     path('blog/', include('blog.urls')),
+    path('galary/', views.galary, name='galary'),
+    path('project/', views.project, name='project'),
+    path('course/', views.course, name='course'),
+    path('book/', views.book, name='book'),
+    path('document/', views.document, name='document'),
+    path('blog/', include('blog.urls')),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

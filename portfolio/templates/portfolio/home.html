@@ -6,17 +6,17 @@
 
 <div class="row justify-content-center my-3">
   <div class="col-5">
-    <img src="{% static 'portfolio/me.jpg' %}" class="img-fluid">
+    <img src="{% static 'portfolio/me.jpg' %}" class="rounded-circle" style="width:500px">
   </div>
 </div>
 
 <div class="row justify-content-center mb-3">
   <div class="col-md-9 text-center">
-    <h1 id="hometext" class="font-weight-bold">Gone lastvirus is computer science Student and lives in Bharatpur,Nepal 😊</h1>
+    <h1 id="hometext" class="font-weight-bold">Gone lastvirus is a computer science Student and lives in Bharatpur,Nepal 😊</h1>
   </div>
 </div>
-
-<h2 class="mt-5">Portfolio</h2>
+<h2 class="mt-5"><b>Portfolio:</b></h2><br>
+<h3 id="my_project" style="margin-left:10px">Projects</h3>
 <hr>
 <div class="row">
   {% for project in projects %}
@@ -24,11 +24,11 @@
 
     {% if project.url %}
     <a href="{{ project.url }}">
-      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+      <img src="{{ project.image.url }}" class="img-thumbnail" style="border-radius:10px;">
     </a>
     {% else %}
 
-    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    <img src="{{ project.image.url }}" class="img-thumbnail" style="border-radius:10px;">
     {% endif %}
     <h3>{{ project.title }}</h3>
     <p>{{ project.discription }}</p>
@@ -36,5 +36,42 @@
   </div>
   {% endfor %}
 </div>
+<h2 class="mt-5">Free courses</h2>
+<hr>
+<div class="row">
+  {% for course in courses %}
+  <div class="col-lg-4 col-md-6">
 
+    {% if course.url %}
+    <a href="{{ course.url }}" >
+      <img src="{{ course.image.url }}" class="rounded-circle"  width="250" height="240" >
+      </a>
+    {% else %}
+
+    <img src="{{ course.image.url }}"  class="rounded-circle"  width="250" height="240"  >
+    {% endif %}
+    <h3>{{ course.title }}</h3>
+    <p>{{ course.discription }}</p>
+  </div>
+  {% endfor %}
+</div>
+<h2 class="mt-5">Free python Books</h2>
+<hr>
+<div class="row">
+  {% for book in books %}
+  <div class="col-lg-4 col-md-6">
+
+    {% if book.url %}
+    <a href="{{ book.url }}" >
+      <img src="{{ book.image.url }}" class="img-thumbnail">
+    </a>
+    {% else %}
+
+    <img src="{{ book.image.url }}" class="img-thumbnail">
+    {% endif %}
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.discription }}</p>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

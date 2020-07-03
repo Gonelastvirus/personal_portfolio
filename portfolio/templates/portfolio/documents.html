@@ -1,0 +1,23 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<center><h1>Documents</h1>
+    <h2>Gone Lastvirus has upload {{docs.count}} Document{{docs.count|pluralize}}</h2></center>  
+<hr>
+<div class="row">
+  {% for document in docs %}
+  <div class="col-lg-4 col-md-6">
+    {% if document.url %}
+    <a href="{{ document.url }}">
+      <img src="{{ document.image.url }}" class="rounded-circle" width="250" height="230">
+    </a>
+    {% else %}
+    <img src="{{ document.image.url }}" class="rounded-circle" width="250" height="230">
+    {% endif %}
+    <h3>{{ document.title }}</h3>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

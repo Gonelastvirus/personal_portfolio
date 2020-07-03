@@ -1,0 +1,24 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<center><h1>Free books</h1>
+    <h2>Gone Lastvirus has upload {{books.count}} Book{{books.count|pluralize}}</h2></center>
+<hr>  
+<div class="row">
+    {% for book in books %}
+    <div class="col-lg-4 col-md-6">
+      {% if book.url %}
+      <a href="{{ book.url }}" >
+        <img src="{{ book.image.url }}" class="img-thumbnail">
+      </a>
+      {% else %}
+      <img src="{{ book.image.url }}" class="img-thumbnail">
+      {% endif %}
+      <h3>{{ book.title }}</h3>
+      <p>{{ book.discription }}</p>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

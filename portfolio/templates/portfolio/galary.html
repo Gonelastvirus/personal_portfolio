@@ -1,0 +1,21 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<center><h1>Gone Lastvirus photography</h1>
+  <h2>Gone Lastvirus has upload {{galarys.count}} Image{{galarys.count|pluralize}}</h2></center>
+  
+<hr>
+<div class="row" >
+  {% for galary in galarys %}
+    <div class="col-lg-4 col-md-6">
+        <a href="{{ galary.image.url }}"  data-size="1600x1067">
+          <img src="{{ galary.image.url }}" class="img-fluid">
+          <h3 class="text-center my-3">{{ galary.title }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}
